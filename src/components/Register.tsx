@@ -8,14 +8,15 @@ import RegisterForm from './RegisterForm';
 const Register = ({setShowRegiter}: any) => {
     
   return (
-    <div className='fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center items-center'>
-        <div className='w-[600px] flex flex-col'>
-            <button  className=' text-white text-xl place-self-end' onClick={() => setShowRegiter(false) }>
-                    X
-            </button>
-            <div className=' bg-white p-2 rounded'>
-            <div className=" text-center mb-30">
-                  <h3 className="">Sign Up Shofy.</h3>
+    <>
+      <section className="tp-login-area pb-140 p-relative z-index-1 fix">
+
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-xl-6 col-lg-8">
+              <div className="tp-login-wrapper">
+                <div className="tp-login-top text-center mb-30">
+                  <h3 className="tp-login-title">Sign Up Shoppy.</h3>
                   <p>
                     Already have an account?{" "}
                     <span>
@@ -23,10 +24,23 @@ const Register = ({setShowRegiter}: any) => {
                     </span>
                   </p>
                 </div>
+                <div className="tp-login-option">
+                  
+                  <div className="tp-login-mail text-center mb-40">
+                    <p>
+                      or Sign up with <a href="#">Email</a>
+                    </p>
+                  </div>
+                  {/* form start */}
+                  <RegisterForm />
+                  {/* form end */}
+                </div>
+              </div>
             </div>
-            <RegisterForm />
+          </div>
         </div>
-    </div>
+      </section>
+    </>
   )
 }
 

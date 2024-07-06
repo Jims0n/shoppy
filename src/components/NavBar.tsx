@@ -5,9 +5,10 @@ import React from 'react'
 import { AiOutlineShoppingCart, AiOutlineUser } from 'react-icons/ai';
 import { BsSearch } from 'react-icons/bs';
 import { RxHamburgerMenu } from "react-icons/rx";
+import { useRouter } from "next/navigation";
 
 const NavBar = ({ setShowCart, setShowRegiter}: any) => {
-
+    const router = useRouter()
     const cartCount = useAppselector((state) => state.cartReducer.length)
   return (
     <div className="bg-white sticky top-0 z-10">
@@ -41,7 +42,7 @@ const NavBar = ({ setShowCart, setShowRegiter}: any) => {
 
         <div className="container hidden lg:block">
             <div className="flex justify-between items-center p-8">
-                <h1 className="text-4xl font-medium "> Shoppy</h1>
+                <Link href="/" className='navlink'>Shoppy</Link>
                 <div className="relative w-full max-w-[500px]">
                     <input 
                         className="bg-[#f2f3f5] border-none outline-none px-6  py-3 rounded-[30px] w-full"
@@ -52,7 +53,7 @@ const NavBar = ({ setShowCart, setShowRegiter}: any) => {
                 </div>
 
                 <div className="flex gap-4">
-                    <div className='icon_wrapper cursor-pointer' onClick={() => setShowRegiter(true)}>
+                    <div className='icon_wrapper cursor-pointer'  onClick={() => router.push(`/register`)}>
                         <AiOutlineUser  />
                     </div>
                     <div className='icon_wrapper cursor-pointer'  onClick={() => setShowCart(true)}>
